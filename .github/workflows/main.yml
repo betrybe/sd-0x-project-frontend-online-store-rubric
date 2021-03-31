@@ -27,18 +27,18 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-  evaluator_job:
-    name: Evaluator job
+ evaluator_job:
+    name: Evaluator step
     runs-on: ubuntu-18.04
-    needs: [eslint, stylelint]
+    needs: eslint
     steps:
-      - uses: actions/checkout@v2  
+      - uses: actions/checkout@v2
       - name: Evaluator step
         id: evaluator
-        uses: betrybe/react-scripts-evaluator-action@v6
+        uses: betrybe/cypress-evaluator-action@v5
         with:
-          repository-test-name: 'betrybe/sd-0x-project-frontend-online-store-tests'
-          repository-test-branch: 'master'
+          repository-test-name: 'betrybe/sd-0x-project-shopping-cart-tests'
+          repository-test-branch: 'ajustes_testes'
         env:
           GITHUB_USER_TEST: ${{ github.actor }} 
       - name: Store evaluation step
