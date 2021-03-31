@@ -32,6 +32,7 @@ jobs:
     name: Evaluator job
     needs: eslint
     steps:
+      - uses: actions/checkout@v2
       - name: Evaluator step
         id: evaluator
         uses: betrybe/react-scripts-evaluator-action@v4
