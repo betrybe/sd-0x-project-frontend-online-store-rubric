@@ -287,7 +287,7 @@ Você pode também instalar o plugin do `ESLint` no `VSCode`, bastar ir em exten
 
 ### Usando o Trello como ferramenta kanban
 
-Uma forma para seu grupo organizar as atividades e dividir as tarefas é através de um modelo de kanban. A Trybe disponibiliza um [board pré-configurado para vocês](https://trello.com/b/9mjukxCq/frontend-online-store) duplicarem no [Trello](https://trello.com/).
+Uma forma para seu grupo organizar as atividades e dividir as tarefas é através de um modelo de kanban. A Trybe disponibiliza um [board pré-configurado para vocês](https://trello.com/b/NZRyj0vm/frontend-online-store) duplicarem no [Trello](https://trello.com/).
 
 ![img](trello.gif)
 
