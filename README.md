@@ -218,6 +218,12 @@ Você pode executar os testes para um único requisito passando, como parâmetro
 npm test src/__tests__/requirement1.test.js
 ```
 
+### Dica: desativando testes
+
+Caso queira avaliar apenas um tópico ou requisito, você também pode usar o `.only` após o `it`. Com isso, será possível que apenas sub tópico rode localmente seja avaliado.
+
+![image](only-one-green.png)
+
 ## Documentação da API do Mercado Livre
 
 Sua página _web_ irá consumir os dados da API do _Mercado Livre_ para realizar a busca de itens da sua loja online. Para realizar essas buscas, vocês precisarão consultar os seguintes _endpoints_:
