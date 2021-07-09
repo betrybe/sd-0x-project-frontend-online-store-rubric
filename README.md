@@ -220,8 +220,9 @@ npm test src/__tests__/requirement1.test.js
 
 ### Dica: desativando testes
 
-Caso queira avaliar apenas um tópico ou requisito, você também pode usar o `.only` após o `it`. Com isso, será possível que apenas sub tópico rode localmente seja avaliado.
+Caso queira avaliar apenas um tópico do requisito, você  pode usar o `.only` após o `it`. Com isso, será possível que apenas sub tópico rode localmente seja avaliado.
 
+![image](it-only.png)
 ![image](only-one-green.png)
 
 ## Documentação da API do Mercado Livre
