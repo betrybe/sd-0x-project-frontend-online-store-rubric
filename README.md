@@ -424,9 +424,9 @@ O que será verificado:
 
 **Observações técnicas**
 
-Um endpoint da API do Mercado Livre retorna as categorias de produto disponíveis para busca. Em momento posterior tais categorias serão usadas para filtrar a listagem de produtos. Por hora, elas devem ser listadas na tela da listagem, conforme protótipo.
+Um endpoint da API do Mercado Livre retorna as categorias de produto disponíveis para busca. Em um momento posterior tais categorias serão usadas para filtrar a listagem de produtos, ou seja, elas serão clicáveis para aplicar tais filtros, para isso utilize o elemento do tipo `button` ou do tipo `radio button` para renderizar as categorias. Por hora, elas devem ser listadas na tela da listagem, conforme protótipo.
 
-  * Adicione o atributo `data-testid` com o valor `category` nos elementos que possuem os nomes das categorias
+  * Adicione o atributo `data-testid` com o valor `category` nos elementos clicáveis que receberão o nome da categoria. **Atenção!** No caso dos `radio buttons` as `labels` dos elementos que deverão receber o `data-testid`, e não se esqueça da propriedade `htmlFor`.
 
 O que será verificado:
 ```
