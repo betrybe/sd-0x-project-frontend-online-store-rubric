@@ -12,7 +12,7 @@ describe('15 - Mostre quais produtos tem o frete grátis', () => {
     render(<App />);
     await waitFor(() => expect(global.fetch).toHaveBeenCalled());
     fireEvent.click(screen.getAllByTestId('category')[0]);
-    await waitFor(() => expect(global.fetch).toHaveBeenCalled());
+    await waitFor(() => expect(global.fetch).toHaveBeenCalledTimes(2));
     expect(screen.getAllByTestId('free-shipping').length).toBe(1);
   });
 });
