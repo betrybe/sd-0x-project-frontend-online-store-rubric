@@ -14,7 +14,7 @@ describe(`14 - Limite a quantidade de produtos adicionados ao carrinho pela quan
     render(<App />);
     await waitFor(() => expect(global.fetch).toHaveBeenCalled());
     fireEvent.click(screen.getAllByTestId('category')[0]);
-    await waitFor(() => expect(global.fetch).toHaveBeenCalled());
+    await waitFor(() => expect(global.fetch).toHaveBeenCalledTimes(2));
     fireEvent.click(screen.getAllByTestId('product-add-to-cart')[1]);
     fireEvent.click(screen.getByTestId('shopping-cart-button'));
     await waitFor(() => expect(screen.getAllByTestId('shopping-cart-product-name')));
