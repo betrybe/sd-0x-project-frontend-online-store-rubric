@@ -14,7 +14,7 @@ describe('8 - Adicione produtos a partir da tela de listagem de produtos', () =>
 
     await waitFor(() => expect(global.fetch).toHaveBeenCalled());
     fireEvent.click(screen.getAllByTestId('category')[0]);
-    await waitFor(() => expect(global.fetch).toHaveBeenCalled());
+    await waitFor(() => expect(global.fetch).toHaveBeenCalledTimes(2));
     fireEvent.click(screen.getAllByTestId('product-add-to-cart')[0]);
     fireEvent.click(screen.getByTestId('shopping-cart-button'));
     await waitFor(() => expect(screen.getAllByTestId('shopping-cart-product-name')));
