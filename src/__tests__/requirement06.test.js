@@ -15,7 +15,7 @@ describe('6 - Selecione uma categoria e mostre somente os produtos daquela categ
     await waitFor(() => expect(global.fetch).toHaveBeenCalled());
     fireEvent.click(screen.getAllByTestId('category')[0]);
 
-    await waitFor(() => expect(global.fetch).toHaveBeenCalled());
+    await waitFor(() => expect(global.fetch).toHaveBeenCalledTimes(2));
     expect(screen.getAllByTestId('product').length).toEqual(
       mockedQueryResult.results.length,
     );
