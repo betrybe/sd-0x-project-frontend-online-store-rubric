@@ -26,7 +26,7 @@ describe(`13 - Mostre junto ao ícone do carrinho a quantidade de produtos dentr
     render(<App />);
     await waitFor(() => expect(global.fetch).toHaveBeenCalled());
     fireEvent.click(screen.getAllByTestId('category')[0]);
-    await waitFor(() => expect(global.fetch).toHaveBeenCalled());
+    await waitFor(() => expect(global.fetch).toHaveBeenCalledTimes(2));
     fireEvent.click(screen.getAllByTestId('product-add-to-cart')[0]);
     fireEvent.click(screen.getAllByTestId('product-add-to-cart')[1]);
     fireEvent.click(screen.getAllByTestId('product-detail-link')[0]);
