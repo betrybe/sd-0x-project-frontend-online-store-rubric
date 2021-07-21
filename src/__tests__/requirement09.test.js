@@ -14,7 +14,7 @@ describe(`9 - Adicione um produto ao carrinho a partir de sua tela de exibição
     await waitFor(() => expect(global.fetch).toHaveBeenCalled());
 
     fireEvent.click(screen.getAllByTestId('category')[0]);
-    await waitFor(() => expect(global.fetch).toHaveBeenCalled());
+    await waitFor(() => expect(global.fetch).toHaveBeenCalledTimes(2));
     fireEvent.click(screen.getAllByTestId('product-detail-link')[0]);
     await waitFor(
       () => expect(screen.getByTestId('product-detail-name')).toHaveTextContent(
