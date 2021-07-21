@@ -3,8 +3,12 @@ import mockedCategoriesResult from '../__mocks__/categories';
 import mockFetch from '../__mocks__/mockFetch';
 
 describe('1 - Implemente o módulo de acesso à api do Mercado Livre', () => {
-  it('Implementa a função `getCategories`', () => {
 
+  afterEach(() => {
+    global.fetch.mockClear();
+  });
+
+  it('Implementa a função `getCategories`', () => {
     jest.spyOn(global, 'fetch').mockImplementation((url) => {
       return mockFetch(url);
     });

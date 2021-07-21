@@ -4,6 +4,11 @@ import App from '../App';
 import mockFetch from '../__mocks__/mockFetch';
 
 describe(`13 - Mostre junto ao ícone do carrinho a quantidade de produtos dentro dele, em todas as telas em que ele aparece`, () => {
+
+  afterEach(() => {
+    global.fetch.mockClear();
+  });
+
   it('Vê a quantidade de produtos no carrinho da tela de listagem', async () => {
 
     jest.spyOn(global, 'fetch').mockImplementation((url) => {
