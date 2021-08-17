@@ -1,0 +1,42 @@
+const categories = require('./categories');
+const query = require('./query');
+const details = require('./details');
+
+
+const mockFetch = (url) => {
+  if (url === 'https://api.mercadolibre.com/sites/MLB/categories') {
+    return Promise.resolve({
+      json: () => Promise.resolve(categories)
+    })
+  }
+
+  if (url.includes(' https://api.mercadolibre.com/sites/MLB/search?category=') && url.includes('&q=')) {
+    return Promise.resolve({
+      json: () => Promise.resolve(query)
+    })
+  }
+
+  if (url.includes('https://api.mercadolibre.com/sites/MLB/search?q=')) {
+    return Promise.resolve({
+      json: () => Promise.resolve(query)
+    })
+  }
+
+  if (url.includes('https://api.mercadolibre.com/sites/MLB/search?category=')) {
+    return Promise.resolve({
+      json: () => Promise.resolve(query)
+    })
+  }
+
+  if (url.includes('https://api.mercadolibre.com/items/')) {
+    return Promise.resolve({
+      json: () => Promise.resolve(details)
+    })
+  }
+
+  return Promise.resolve({
+    json: () => Promise.resolve(query)
+  })
+};
+
+module.exports = mockFetch;

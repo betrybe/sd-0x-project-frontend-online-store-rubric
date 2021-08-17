@@ -1,17 +1,8 @@
 import React from 'react';
 import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import App from '../App';
-import * as api from '../services/api';
-import mockedCategoriesResult from '../__mocks__/categories';
 import mockedQueryResult from '../__mocks__/query';
-
-jest.mock('../services/api');
-api.getCategories.mockImplementation(
-  () => Promise.resolve(mockedCategoriesResult),
-);
-api.getProductsFromCategoryAndQuery.mockImplementation(
-  () => Promise.resolve(mockedQueryResult),
-);
+import mockFetch from '../__mocks__/mockFetch';
 
 describe(`12 - Finalize a compra vendo um resumo dela, preenchendo os seus dados e escolhendo a forma de pagamento`, () => {
   it(`Faz os passos da compra com sucesso: recupera produtos de uma categoria;
@@ -22,10 +13,13 @@ describe(`12 - Finalize a compra vendo um resumo dela, preenchendo os seus dados
     const phone = '99999999999';
     const cep = '99999999';
     const address = 'my address is where I live';
+    jest.spyOn(global, 'fetch').mockImplementation((url) => {
+      return mockFetch(url);
+    });
     render(<App />);
-    await waitFor(() => expect(api.getCategories).toHaveBeenCalled());
+    await waitFor(() => expect(global.fetch).toHaveBeenCalled());
     fireEvent.click(screen.getAllByTestId('category')[0]);
-    await waitFor(() => expect(api.getProductsFromCategoryAndQuery).toHaveBeenCalled());
+    await waitFor(() => expect(global.fetch).toHaveBeenCalledTimes(2));
     fireEvent.click(screen.getAllByTestId('product-add-to-cart')[0]);
     fireEvent.click(screen.getByTestId('shopping-cart-button'));
     await waitFor(() => expect(screen.getAllByTestId('shopping-cart-product-name')));
